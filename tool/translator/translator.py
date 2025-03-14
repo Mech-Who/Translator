@@ -236,7 +236,7 @@ class AliTranslator(Translator):
 class VolcanoTranslator(Translator):
     def __init__(self, access_key_id: str, access_key_secret: str, endpoint: str, region: str, qps: int) -> str:
         service_info = ServiceInfo(
-            endpoint, 
+            endpoint,
             {'Content-Type': 'application/json'},
             Credentials(access_key_id, access_key_secret, 'translate', region),
             5,
@@ -258,8 +258,8 @@ class VolcanoTranslator(Translator):
             "TextList": [query]
         }
         if from_lang != "auto":
-            body = { 
-                "SourceLanguage": from_lang, 
+            body = {
+                "SourceLanguage": from_lang,
                 **body
             }
         try:
@@ -278,9 +278,9 @@ class XiaoNiuTranslator(Translator):
 
     def translate(self, query: str, from_lang: str="en", to_lang: str="zh") -> str:
         data = {
-            "from": from_lang, 
-            "to": to_lang, 
-            "apikey": self.api_key, 
+            "from": from_lang,
+            "to": to_lang,
+            "apikey": self.api_key,
             "src_text": query
         }
         data_en = urllib.parse.urlencode(data)
