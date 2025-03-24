@@ -1,14 +1,17 @@
 '''
 Author: HuShuhan 873933169@qq.com
 Date: 2025-03-10 16:42:40
-LastEditors: HuShuhan 873933169@qq.com
-LastEditTime: 2025-03-10 16:42:44
+LastEditors: hushuhan 873933169@qq.com
+LastEditTime: 2025-03-24 21:40:36
 FilePath: \Translator\tool\translator\config.py
 Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 '''
 import os
 from dataclasses import dataclass
-from typing import *
+from dotenv import load_dotenv
+from typing import List, NamedTuple
+
+load_dotenv()
 
 class LangUnit(NamedTuple):
     name: str = "Unknown"
@@ -26,7 +29,7 @@ LANG_LIST: List[LangUnit]= [
 ]
 
 baidu_app_id = os.environ["BAIDU_APP_ID"] # "20230315001600893"
-baidu_app_key = os.environ["BAIDU_APP_ID"] # "lX8Eo5cdAfAPmBcaKxmy"
+baidu_app_key = os.environ["BAIDU_APP_KEY"] # "lX8Eo5cdAfAPmBcaKxmy"
 @dataclass
 class BaiduConfig:
     APP_ID: str = baidu_app_id

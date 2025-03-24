@@ -56,7 +56,7 @@ class Translator(ABC):
 
 
 class BaiduTranslator(Translator):
-    def __init__(self, app_id: str, app_key: str, url: str, qps: int) -> NoReturn:
+    def __init__(self, app_id: str, app_key: str, url: str, qps: int) -> None:
         self.app_id = app_id
         self.app_key = app_key
         self.url = url
